@@ -1,0 +1,19 @@
+services:
+  web:
+    build:
+      context: CMS
+      target: builder
+    ports:
+      - 4200:4200
+    volumes:
+      - ./CMS:/project
+      - /project/node_modulesß
+  server:
+    build: 
+      context: prodotti
+      target: builder
+    ports:
+      - 8080:8080
+    volumes:
+      - ./prodotti:/project
+      - /project/node_modulesß
