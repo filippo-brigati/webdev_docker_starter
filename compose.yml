@@ -9,7 +9,7 @@ services:
       - ./CMS:/project
       - /project/node_modulesß
   server:
-    build: 
+    build:
       context: prodotti
       target: builder
     ports:
@@ -17,3 +17,11 @@ services:
     volumes:
       - ./prodotti:/project
       - /project/node_modulesß
+  database:
+    image: mysql:8.0
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./MySql:/docker-entrypoint-initdb.d
