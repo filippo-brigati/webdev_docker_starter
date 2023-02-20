@@ -15,9 +15,9 @@ This is a simple web project made to learn docker compose. I started reading doc
 - [x] Implement frontend
 - [x] Implement backend
 - [x] Setup docker
-- [ ] Implement DB (mysql)
+- [x] Implement DB (mysql)
+- [x] Connetction between backend and database
 - [ ] Connetction between backend and frontend
-- [ ] Connetction between backend and database
 - [ ] Connetction between microservices
 
 My website [here](https://filippobrigati.vercel.app/)
