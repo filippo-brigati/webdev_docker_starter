@@ -12,8 +12,3 @@ COPY . .
 CMD ["ng", "serve", "--host", "0.0.0.0"]
 
 FROM builder as dev-envs
-
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-
-CMD ["ng", "serve", "--host", "0.0.0.0"]

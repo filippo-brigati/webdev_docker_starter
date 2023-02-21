@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Edit {{this.title}}</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="this.activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form class="mb-5" #f="ngForm" (ngSubmit)="this.onSubmit(f)" novalidate>
+    <div class="form-group mb-3">
+      <label for="brand_name1">Insert new brand name:</label>
+      <input
+        name="brand_name"
+        class="form-control"
+        placeholder="Enter new brand name"
+        ngModel
+        required
+        #brand_name="ngModel"
+      />
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="this.onSubmit(f)"
+  >
+    Save
+  </button>
+</div>

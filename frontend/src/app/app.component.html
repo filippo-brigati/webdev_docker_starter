@@ -13,17 +13,28 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <table class="table-primary container">
+  <table class="table table-hover container">
     <thead>
       <tr>
         <th scope="col">BRAND ID</th>
         <th scope="col">BRAND NAME</th>
+        <th scope="col">ACTION</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of data; index as i">
-        <th scope="row">{{ this.item.brand_id }}</th>
-        <td>{{ this.item.brand_name }}</td>
+        <th scope="row" class="align-middle">{{ this.item.brand_id }}</th>
+        <td class="align-middle">{{ this.item.brand_name }}</td>
+        <td>
+          <div class="row align-middle">
+            <p class="col text-warning align-middle" style="cursor: pointer" (click)="this.changeEditState(this.item)">
+              Edit
+            </p>
+            <p class="col text-danger align-middle" style="cursor: pointer" (click)="this.delete(this.item.brand_id)">
+              Delete
+            </p>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

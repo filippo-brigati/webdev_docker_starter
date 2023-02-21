@@ -79,6 +79,7 @@ app.post("/brand", (req, res) => {
 
 app.put("/brand", (req, res) => {
   con = mysql.createConnection(mysqlConfig);
+
   con.connect(function (err) {
     if (err) {
       res.json({ message: "Server is running, db connection error" });
@@ -92,7 +93,7 @@ app.put("/brand", (req, res) => {
             console.log(err);
           } else {
             res.json({
-              brand_id: results.insertId,
+              brand_id: req.body.brand_id,
               brand_name: req.body.brand_name,
             });
           }

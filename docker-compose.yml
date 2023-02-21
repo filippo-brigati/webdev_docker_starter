@@ -1,5 +1,6 @@
 services:
   database:
+    container_name: database_mysql
     image: mysql:latest
     environment:
         - MYSQL_DATABASE=prova
@@ -11,24 +12,26 @@ services:
     volumes:
       - ./MySql:/docker-entrypoint-initdb.d
   server:
+    container_name: backend_prodotti
     depends_on:
       - database
     build:
-      context: prodotti
+      context: backend
       target: builder
     ports:
       - 8080:8080
     volumes:
-      - ./prodotti:/project
-      - /project/node_modulesß
+      - ./backend:/project
+      - /project/node_modules
   web:
+    container_name: frontend_CMS
     depends_on:
       - server
     build:
-      context: CMS
+      context: frontend
       target: builder
     ports:
       - 4200:4200
     volumes:
-      - ./CMS:/project
-      - /project/node_modulesß
+      - ./frontend:/project
+      - /project/node_modules
